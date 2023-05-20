@@ -11,5 +11,9 @@ module.exports = {
       dbName: 'fd_chat_test'
     },
     production: {}
+  },
+  SOCKET_EVENTS: {
+    NEW_MESSAGE: 'NEW_MESSAGE',
+    NEW_MESSAGE_ERROR: 'NEW_MESSAGE_ERROR'
   }
 }
