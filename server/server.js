@@ -23,7 +23,8 @@ io.on('connection', (socket) => {
       if (!savedMessage) {
         throw new Error('Bad message!')
       }
-      io.emit(SOCKET_EVENTS.NEW_MESSAGE, savedMessage);
+      const messageWithAuthor = await Message.findById(savedMessage._id).populate('author')
+      io.emit(SOCKET_EVENTS.NEW_MESSAGE, messageWithAuthor);
     } catch (error) {
       socket.emit(SOCKET_EVENTS.NEW_MESSAGE_ERROR, error);
     }

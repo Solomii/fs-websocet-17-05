@@ -16,6 +16,8 @@ const socket = io(`ws://${mainURL}`, { transports: ["websocket"] });
 
 export const getMessages = (params = {}) => httpClient.get("/");
 
+export const createUser = (values)  => httpClient.post("/users", values);
+
 export const sendMessage = (data) => socket.emit(NEW_MESSAGE, data);
 
 socket.on(NEW_MESSAGE, (savedMessage) => {

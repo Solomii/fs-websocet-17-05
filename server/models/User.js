@@ -5,10 +5,13 @@ const schemaUser = new Schema({
   login: {
     type: String,
     required: true,
+    unique: true,
     min: 3,
     max: 32
   },
   messages: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
+}, {
+  timestamps: true
 });
 
 const User = mongoose.model('User', schemaUser);
